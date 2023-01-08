@@ -3,8 +3,8 @@ import {Sidebar as ProSidebar, Menu, MenuItem, SubMenu} from "react-pro-sidebar"
 
 //import "react-pro-sidebar/dist/css/styles.css";
 import {Box, IconButton, Typography, useTheme} from "@mui/material"
-import { Link } from "react-router-dom";
-import { ColorModeContext, tokens } from "../../theme"
+import {Link} from "react-router-dom";
+import {tokens} from "../../theme"
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined"
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined"
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined"
@@ -43,22 +43,21 @@ const Sidebar = () => {
 
     return (
         // TODO: These styles are not working. Draw a nicer looking sidebar.
+        //  Update: the top 2 work now. Finish the rest using this: https://www.npmjs.com/package/react-pro-sidebar
         // TODO: Collapsing the sidebar doesn't actually make it any less wide.
         <Box sx={{
-            "& .pro-sidebar-inner": {
-                background: '${colors.primary[400]} !important'
+            "& .ps-menu-root": {
+                background: `${colors.primary[400]} !important`,
+                border:0
             },
-            "& .pro-icon-wrapper": {
-                backgroundColor: 'transparent !important'
+            "& .ps-menuitem-root": {
+                background: `${colors.primary[400]} !important`
+            },            
+            "& .ps-menuitem-root:ps-active": {
+                color: "#6870fa !important"
             },
-            "& .pro-inner-item": {
-                padding: '5px 35px 5px 20px !important'
-            },
-            "& .pro-inner-item:hover": {
-                color: '#868dfb !important'
-            },
-            "& .pro-menu-item:active": {
-                color: '#6870fa !important'
+            "& .ps-menuitem-root:ps-hover": {
+                color: "#868dfb !important"
             }
         }}>
             <ProSidebar collapsed={isCollapsed}>
